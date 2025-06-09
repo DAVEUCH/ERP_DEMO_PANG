@@ -1,0 +1,63 @@
+﻿@model SistemaVenta.AplicacionWeb.Models.ViewModels.VMUsuarioLogin;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Argo Inventory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/normalize.css">
+    <link rel="stylesheet" href="~/css/estilos.css">
+</head>
+
+<body>
+
+    <div class="contenedor-formulario contenedor">
+        <div class="imagen-formulario">
+        </div>
+
+        <form class="formulario" asp-controller="Acceso" asp-action="Login" method="post">
+            <div class="texto-formulario">
+                <h2>Bienvenido de nuevo</h2>
+                <p>ARGOS Inventory</p>
+            </div>
+            <div class="input">
+                <label for="form1Example13">Usuario</label>
+                <input type="email" placeholder="Correo" asp-for="Correo">
+            </div>
+            <div class="input">
+                <label for="form1Example23">Contraseña</label>
+                <input type="password" placeholder="Contraseña" asp-for="Clave">
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox small">
+                    <input type="checkbox" class="custom-control-input" id="chkMantenerSesion" asp-for="MantenerSesion">
+                    <label class="custom-control-label" for="chkMantenerSesion">Mantener Sesión</label>
+                </div>
+            </div>
+            @if (ViewData["Mensaje"] != null)
+            {
+                <div class="form-group">
+                    <div class="alert alert-danger" role="alert">
+                        @ViewData["Mensaje"]
+                    </div>
+                </div>
+            }
+
+            <div class="input">
+                <input type="submit" value="Login">
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
